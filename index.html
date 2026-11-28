@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://api.github.com https://api.ipify.org; manifest-src 'self'; worker-src 'self'">
+<meta name="theme-color" content="#121218">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Finanzas">
+<meta name="robots" content="noindex">
+<title>Finanzas</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icono-180.png">
+<link rel="icon" href="icono-192.png">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div id="app">
+  <section id="bloqueo" class="bloqueo">
+    <img src="icono-192.png" alt="" class="bloqueo-logo">
+    <h1>Finanzas</h1>
+    <p class="suave">Escribe tu contraseña para abrir tus datos.</p>
+    <form id="form-clave" autocomplete="on">
+      <input type="text" name="username" value="finanzas" autocomplete="username" hidden>
+      <input id="clave" type="password" name="password" autocomplete="current-password"
+             autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Contraseña" required>
+      <label class="check"><input id="recordar" type="checkbox" checked> Recordar en este iPhone</label>
+      <button id="entrar" type="submit" class="boton">Entrar</button>
+      <p id="error-clave" class="error" hidden></p>
+    </form>
+  </section>
+
+  <main id="contenido" hidden></main>
+
+  <nav id="barra" class="barra" hidden>
+    <button data-pestana="inicio" aria-label="Inicio">
+      <svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"/></svg><span>Inicio</span></button>
+    <button data-pestana="movimientos" aria-label="Movimientos">
+      <svg viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg><span>Movimientos</span></button>
+    <button id="mas" class="mas" aria-label="Apuntar un gasto">
+      <svg viewBox="0 0 24 24"><path d="M5 8h2l1.5-2h7L17 8h2a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg></button>
+    <button data-pestana="tipos" aria-label="Tipos de gasto">
+      <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg><span>Tipos</span></button>
+    <button data-pestana="ahorro" aria-label="Ingresos y ahorro">
+      <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Ahorro</span></button>
+    <button data-pestana="inversiones" aria-label="Inversiones">
+      <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg><span>Inversiones</span></button>
+  </nav>
+
+  <div id="hoja" class="hoja-fondo" hidden><div class="hoja" id="hoja-contenido"></div></div>
+  <div id="aviso" class="aviso" hidden></div>
+  <div id="version" class="version" hidden><span>Hay una versión nueva de la app</span>
+    <button id="version-boton" class="boton-mini">Actualizar</button></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
